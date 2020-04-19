@@ -1,0 +1,245 @@
+Propiedades de espaciado
+
+m - para las clases que establecen margin
+
+p - para las clases que establecen padding
+
+Donde los lados es uno de:
+
+t- para las clases que establecen margin-top o padding-top
+
+b- para las clases que establecen margin-bottom o padding-bottom
+
+l- para las clases que establecen margin-left o padding-left
+
+r- para las clases que establecen margin-right o padding-right
+
+x- para las clases que establecen tanto -left y -right
+
+y- para las clases que establecen tanto -top y -bottom
+
+en blanco - para las clases que establecen un margin o padding en los 4 lados del elemento
+Donde el tamaño es uno de:
+
+0- Para las clases que eliminen el margino padding configurándolo como.0
+
+1- (por defecto) para las clases que establecen margino padding para $ spacer * .25
+
+2- (por defecto) para las clases que establecen margino padding para $ spacer * .5
+
+3- (por defecto) para las clases que establecen margino padding para $ spacer
+
+4- (por defecto) para las clases que establecen margino padding para $ spacer * 1.5
+
+5- (por defecto) para las clases que establecen margino padding para $ spacer * 3
+
+auto- Para las clases que configuran el margin auto.
+
+Apuntes
+La propiedad filter: grayscale(70%); le quita color
+La propiedad max-height: 70vh; porcentaje ocupado en la pantalla
+La propiedad object-fit: cover; auto ajusta la imagen
+
+
+Apuntes:
+Para crear un carrusel de imágenes a traves de Bootstrap, podemos irnos a la documentación, a traves del link: https://getbootstrap.com/docs/4.1/components/carousel/
+object-fit: Es una propiedad CSS que nos permite adaptar el ancho y alto de un elemento (como imagen por ejemplo) dependiendo del tamaño del contenedor. El valor por defecto es “fill” y puede tomar el valor de “cover”.
+data-pause=”false”
+Es un atributo que podemos asignar dentro de la etiqueta de inicio del carrusel, para evitar que las imágenes se pausen mietras hacemos hover con el mouse.
+
+
+
+En el minuto 7:58 el profesor utiliza la propiedad object-fit y que es?, bueno object-fit, es una propiedad que permite preservar la relacion de aspecto de la imagen, ocupando tantos espacios como sea posible ajustandose al tamaño de su contenedor.
+La object-fitpropiedad puede tener los siguientes valores:
+
+fill- Esto es por defecto. El contenido reemplazado está dimensionado para llenar el cuadro de contenido del elemento. Si es necesario, el objeto se estirará o aplastará para ajustarse
+
+contain - El contenido reemplazado se escala para mantener su relación de aspecto mientras se ajusta dentro del cuadro de contenido del elemento
+
+cover- El contenido reemplazado está dimensionado para mantener su relación de aspecto mientras llena el cuadro de contenido completo del elemento. El objeto se recortará para que quepa
+
+none - El contenido reemplazado no se redimensiona
+
+scale-down - El contenido se clasifica como si no se especificara ninguno o contenga (daría como resultado un tamaño de objeto concreto más pequeño)
+
+ejemplo de uso:
+.fill {object-fit: fill;}
+.contain {object-fit: contain;}
+.cover {object-fit: cover;}
+.scale-down {object-fit: scale-down;}
+.none {object-fit: none;}
+
+
+
+z-index: 1;
+En la hoja de estilo en la sección #carousel .overlay. Esta propiedad sirve para controlar el orden de los elementos, mientras mayor es el valor, mayor es la prioridad.
+
+lgo de lo que se uso en esta clase:
+text-right: El texto que esta dentro del elemento se corre hacia la derecha.
+text-md-right: El texto se correrá a la derecha a partir de tamaños de pantalla medianos
+text-center: el texto se alineará al centro por defecto.
+offset: Corre los elementos hacia la derecha. Ejemplo:
+col-md-offset-6: Corre a partir de pantallas medianas, 6 elementos hacia la derecha.
+align-items-center: Las columnas dentro de la fila se alinean verticalmente al centro.
+**Nota: **Para poder centrar verticalmente, recordemos que la altura del container y del row ocupan su espacio mínimo, por lo que debemos apuntar a que ocupen el 100% del alto de su elemento padre (overlay), por lo que debemos ponerle un height del 100%.
+d-none: El elemento con esta clase tendrá un display: none por defecto.
+d-md-block: El elemento con esta clase añadida tendrá un display: block a partir de tamaños de pantalla medianos.
+
+Notas:
+
+Alinear un texto para un tamaño de pantalla especifico
+
+Por defecto
+<div class="text-center"></div>
+<div class="text-right"></div>
+<div class="text-left"></div>
+Small
+<div class="text-sm-center"></div>
+<div class="text-sm-right"></div>
+<div class="text-sm-left"></div>
+Medium
+<div class="text-md-center"></div>
+<div class="text-md-right"></div>
+<div class="text-md-left"></div>
+Large
+<div class="text-lg-center"></div>
+<div class="text-lg-right"></div>
+<div class="text-lg-left"></div>
+Extra Large
+<div class="text-xl-center"></div>
+<div class="text-xl-right"></div>
+<div class="text-xl-left"></div>
+Ocultar un elemento para un tamaño de pantalla especifico
+
+Por defecto
+<p class="d-none"></p>
+Small
+<p class="d-sm-none"></p>
+Medium
+<p class="d-md-none"></p>
+Large
+<p class="d-lg-none"></p>
+Extra Large
+<p class="d-xl-none"></p>
+Mostrar un elemento para un tamaño de pantalla especifico
+Nota: se usara esta clase solo si se oculto el elemento.
+
+Por defecto
+<p class="d-block"></p>
+Small
+<p class="d-sm-block"></p>
+Medium
+<p class="d-md-block"></p>
+Large
+<p class="d-lg-block"></p>
+Extra Large
+<p class="d-xl-block"></p>
+
+
+Apuntes de la clase CARDS 12:
+text-uppercase: El texto dentro del elemento saldrá en mayúsculas.
+mt-[numero]: Al elemento al que se le agrega esta clase, tendrá un margin-top dependiendo del numero que se le ponga.
+mb-[numero]: Al elemento al que se le agrega esta clase, tendrá un margin-bottom dependiendo del número que se le ponga.
+
+Por si las imágenes son demasiado altas o anchas y no son cuadradas como las que usa Sacha pueden usar
+#speakers .container .row img{
+max-height: 20vh;
+object-fit: cover; scale-down; o contain;
+}
+
+el cover funciona pero en mi caso me recorta la imagen y solo se miraba la mitad de la cara de las imágenes que utilice.s
+
+
+///////////////////////////////////////////////////////
+Apuntes de la clase Container-fluid 14:
+
+
+Propiedades de espaciado
+
+m - para las clases que establecen margin
+
+p - para las clases que establecen padding
+
+Donde los lados es uno de:
+
+t- para las clases que establecen margin-top o padding-top
+
+b- para las clases que establecen margin-bottom o padding-bottom
+
+l- para las clases que establecen margin-left o padding-left
+
+r- para las clases que establecen margin-right o padding-righ
+
+Hola! Creo que Sacha se pudo haber ahorrado los estilos CSS que puso:
+
+Para la imagen ancho 100% basta con agregarle .img-fluid
+
+En la columna puede ahorrse pl-0 y pr-0 con solo ```p-0``
+
+Y, el color negro de fondo con bg-dark y pueden usar también text-light o text-white
+
+-el .container-fluid a diferencia del .container normal ocupa todo el espacio del div en el cual se le ponga.
+-align-self-center: posiciona el div en el centro de la col
+
+
+//CENTRAR UN BOTON
+dentro de un div
+-class="d-flex justify-content-center"
+-class="d-block"
+-class="justify-self-center"
+
+
+////////////////////////////////////////////////////////////////////////////////////////
+Apuntes de la clase 15: Formularios
+Los formularios de Bootstrap 4
+Apuntes:
+Bootstrap nos permite trabajar con formularios, puesto que tiene un modulo muy extenso para interactuar con formularios de multiples maneras.
+La clase “.form-group” nos permite darle cierto espaciado a los input.
+Con la clase “.form-control-lg” especificamos que es un input del formulario como tal, pero que lleva un tamaño grande.
+Con la clase “.form-text” especificamos que es un texto para el formulario y con “.text-muted” especificamos que va a tener una tonalidad gris.
+Con la clase “.btn-block” podemos hacer que el botón ocupe todo el ancho disponible.
+
+offset-md- 2 , clase para mover la columna hacia la derecha. Esta clases aumentan el margen izquierdo de una columna por * columnas.
+
+
+////////////////////////////////////////////////////////////////////////////////////////
+Apuntes de la clase 16: Tooltip
+
+Apuntes:
+Bootstrap nos permite hacer referencia a una palabra y mostrar una pequeña descripción acerca de la misma a traves de tooltips.
+abbr: Esta etiqueta es representada como una abreviación, junto con el atributo “title”, permite hacer una descripción acerca de la palabra abreviada.
+A la etiqueta abbr, podemos incluirle un aributo llamado ‘data-toggle=”tooltip”’, a lo que posteriormente debemos crearle un script al final del documento html y escribir dentro del mismo lo siguiente:
+$(function(){ $('[data-toggle="tooltip"').tooltip() })
+Esto nos permitirá añadirle una mejor visibilidad al tooltip.
+
+¿Que es un tooltip?
+Un tooltip (también llamada descripción emergente) es una herramienta de ayuda visual, que funciona al situar el cursor sobre algún elemento gráfico, mostrando una ayuda adicional para informar al usuario de la finalidad del elemento sobre el que se encuentra.
+
+Los tooltip son una variación de los globos de ayuda y es un complemento muy usado en programación y diseño, dado que proporcionan información adicional sin necesidad de que el usuario la solicite de forma activa.
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+Apuntes de la clase 17: ScrollSpy
+
+Los atributos que usamos:
+data-spy=" " lleva como valor scroll.
+data-target=" " lleva como valor el id del elemento del menú.
+data-offset=" " una cantidad de pixeles, de tu header para que no se pierda la iluminación correcta de los elementos.
+
+Apuntes:
+Bootstrap nos permite saber la ubicación actual del menú donde nos encontramos a traves de la herramienta scroolspy. Para que esto sea posible debemos hacer lo siguiente:
+
+Ir a la documentación como apoyo para implementación: https://getbootstrap.com/docs/4.1/components/scrollspy/
+
+Asignarle al body los atributos de:
+data-spy="scroll" data-target="#navbar"
+
+Asignarle al div que contiene las etiquetas <a> de nagevacion la id de “navbar”.
+<div class="collapse navbar-collapse" id="navbar">
+
+Debemos asignar a los atributos “href” del menú de navegación las id que le colocamos a las secciones anteriormente.
+
+Podemos opcionalmente agregar la clase a la etiqueta <nav> de “.sticky-top” para que la barra de navegación nos acompañe.
+
+Es recomendable remover la clase “active” al ítem de navegación de inicio.
+
+Debemos asignar una clase adicional la etiqueta de body, la cual es “.data-offset=[numero]” y como número, debemos asignarle el alto de la barra de navegación. De esta manera optimizamos el Scrollspy.
