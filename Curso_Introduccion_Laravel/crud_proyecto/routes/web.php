@@ -20,3 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'UserController@index')->name('/');
 Route::post('/store', 'UserController@store')->name('users.store');
 Route::delete('/destroy/{id}', 'UserController@destroy')->name('users.destroy');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
