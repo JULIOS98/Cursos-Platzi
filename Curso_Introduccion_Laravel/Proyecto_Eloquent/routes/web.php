@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 use App\Post;
+use App\User;
 
 Route::get('/prueba', function(){
     //$post = Post::all(); --Obtener todos los post
@@ -39,6 +40,48 @@ Route::get('/posts', function(){
 
     return $post;
 });
+
+Route::get('/users', function(){
+    //$post = Post::all(); --Obtener todos los post
+    $users = User::all();
+
+    foreach($users as $user){
+        $user->id;
+        $user->name;
+        $user->posts;
+    }
+
+    return $user;
+});
+
+Route::get('/collections', function(){
+    //$post = Post::all(); --Obtener todos los post
+    $users = User::all();
+
+    //dd($users->contains(5)); //Verifica si existe en la bd
+    //dd($users->except([1,2,3]));
+    //dd($users->only(4));
+    //dd($users->find(2));
+    dd($users->load('posts'));
+
+   
+});
+
+Route::get('/serialization', function(){
+    //$post = Post::all(); --Obtener todos los post
+    $users = User::all();
+
+    //dd($users->toArray()); //Imprime un array
+
+    $user = $users = User::find(1);
+    dd($user->toJson());
+
+   
+});
+
+
+
+
 
 
 
