@@ -10,6 +10,8 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    protected $table = 'users';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -40,4 +42,17 @@ class User extends Authenticatable
     public function posts(){
         return $this->hasMany(Post::class); //Un usuario tiene muchos posts
     }
+
+    //Sobre escritura de metodo
+    public function getGetNameAttribute()
+    {
+        return strtoupper($this->name); //Regresar todo el campo en mayusculas
+    }
+
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = strtolower($value); //Al momento de que se guarde, se guardara en minuscula en la bd
+    }
+
+    //ucfirst() //La primera letra mayuscula y las demas minuscula
 }

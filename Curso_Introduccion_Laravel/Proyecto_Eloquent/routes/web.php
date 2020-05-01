@@ -27,7 +27,7 @@ Route::get('/prueba', function(){
 });
 
 
-
+//Arreglo en Json
 Route::get('/posts', function(){
     //$post = Post::all(); --Obtener todos los post
     $posts = Post::all();
@@ -41,13 +41,29 @@ Route::get('/posts', function(){
     return $post;
 });
 
+//Regreso con datos con echo
+Route::get('/post', function(){
+    //$post = Post::all(); --Obtener todos los post
+    $posts = Post::all();
+
+    foreach($posts as $post){
+        
+         echo" {$post->id} <strong> {$post->user->get_name} </strong>  {$post->title}</br>";
+           
+    }
+
+   
+});
+
+
+//Arreglo en Json
 Route::get('/users', function(){
     //$post = Post::all(); --Obtener todos los post
     $users = User::all();
 
     foreach($users as $user){
         $user->id;
-        $user->name;
+        $user->get_name;
         $user->posts;
     }
 
