@@ -13,12 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/posts', 'PageController@posts')->name('posts');
+Route::get('/', 'PageController@posts')->name('posts');
 Route::get('/blog/{post}','PageController@post')->name('post');
+
+Route::resource('posts', 'Backend\PostController')->middleware('auth')->except('posts.show');
 
 
 Auth::routes();
