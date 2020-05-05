@@ -5,6 +5,8 @@ namespace App;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 
+use App\User;
+
 class Post extends Model
 {
     use Sluggable;
@@ -25,5 +27,11 @@ class Post extends Model
                 'onUpdate' => true,
             ]
         ];
+    }
+
+    //Relaciones
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }
