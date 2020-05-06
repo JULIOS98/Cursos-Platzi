@@ -13,6 +13,8 @@ class Post extends Model
 
     protected $table = 'posts';
 
+    protected $fillable = ['title','body', 'iframe', 'image', 'user_id'];
+
 
      /**
      * Return the sluggable configuration array for this model.
