@@ -29,7 +29,7 @@
                                 <td>{{$post->id}}</td>
                                 <td>{{$post->title}}</td>
                                 <td>
-                                    <a class="btn btn-sm btn-warning" href="{{route('posts.edit','$post')}}">Editar</a>
+                                    <a class="btn btn-sm btn-warning" href="{{route('posts.edit',$post)}}">Editar</a>
                                 </td>
                                 <td>
                                     <form action="{{route('posts.destroy','$post')}}" method="post">

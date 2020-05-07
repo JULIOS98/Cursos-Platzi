@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'PageController@posts')->name('posts');
 Route::get('/blog/{post}','PageController@post')->name('post');
 
-Route::resource('posts', 'Backend\PostController')->middleware('auth')->except('posts.show');
+Route::resource('posts', 'Backend\PostController')->middleware('auth')->except('show');
 
 
 Auth::routes();
