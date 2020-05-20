@@ -95,7 +95,24 @@ class PostControllerTest extends TestCase
         
         //Comprobar si realmente esta en la bd o existe
         $this->assertDatabaseHas('posts', ['title' => 'nuevo']);
+    }
 
-     
+
+    public function test_delete()
+    {
+        //$this->withoutExceptionHandling();
+        
+        //Primero crear un post
+        $post = factory(Post::class)->create();
+       
+        //Verificar si el post se puede eliminar
+        $response = $this->json('DELETE',"/api/posts/$post->id");
+
+        //Comprobacion de retorno en estructura json
+        $response->assertSee(null)//Afirmar que estamos recibiendo null
+            ->assertStatus(204); //HTTP SIN CONTENIDO
+        
+        //Comprobar si realmente no existe en la base de datos
+        $this->assertDatabaseMissing('posts', ['id' => $post->id]);
     }
 }
