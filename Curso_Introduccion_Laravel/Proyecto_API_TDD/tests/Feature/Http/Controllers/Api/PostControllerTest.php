@@ -69,7 +69,7 @@ class PostControllerTest extends TestCase
         $post = factory(Post::class)->create();
 
         //Acesso
-        $response = $this->json('GET','/api/posts/1000');
+        $response = $this->json('GET',' /api/posts/1000');
         
 
         //Comprobacion de retorno en estructura json
