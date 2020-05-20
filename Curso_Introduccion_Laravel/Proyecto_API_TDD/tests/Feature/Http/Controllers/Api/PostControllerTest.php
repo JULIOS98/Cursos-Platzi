@@ -75,4 +75,27 @@ class PostControllerTest extends TestCase
         //Comprobacion de retorno en estructura json
         $response->assertStatus(404); //Peticion HTTP NOT FOUND
     }
+
+    public function test_update()
+    {
+        //$this->withoutExceptionHandling();
+        
+        //Primero crear un post
+        $post = factory(Post::class)->create();
+       
+        //Verificar si el post se puede actualizar
+        $response = $this->json('PUT',"/api/posts/$post->id",[
+            'title' => 'nuevo',
+        ]);
+
+        //Comprobacion de retorno en estructura json
+        $response->assertJsonStructure(['id', 'title', 'created_at', 'updated_at'])
+            ->assertJson(['title' => 'nuevo'])//Afirmar que estamos teniendo correctamente lo que queremos guardar
+            ->assertStatus(200); //Peticion de manera OK, creado un recurso
+        
+        //Comprobar si realmente esta en la bd o existe
+        $this->assertDatabaseHas('posts', ['title' => 'nuevo']);
+
+     
+    }
 }
