@@ -5,6 +5,7 @@ namespace Tests\Feature\Http\Controllers\Api;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use App\Post;
 
 
 class PostControllerTest extends TestCase
@@ -43,5 +44,35 @@ class PostControllerTest extends TestCase
 
         $response->assertStatus(422) //Solicitud bien hecha pero imposible completarla
             ->assertJsonValidationErrors('title'); 
+    }
+
+    public function test_show()
+    {
+        //Crear un post atraves de un factory
+        $post = factory(Post::class)->create();
+
+        //Acesso
+        $response = $this->json('GET',"/api/posts/$post->id");
+        
+
+        //Comprobacion de retorno en estructura json
+        $response->assertJsonStructure(['id', 'title', 'created_at', 'updated_at'])
+            ->assertJson(['title' => $post->title])//Afirmar que estamos teniendo correctamente lo que queremos guardar
+            ->assertStatus(200); //Peticion de manera OK
+
+    }
+
+    //Funcion para validar que el post exista
+    public function test_404_show()
+    {
+        //Crear un post atraves de un factory
+        $post = factory(Post::class)->create();
+
+        //Acesso
+        $response = $this->json('GET','/api/posts/1000');
+        
+
+        //Comprobacion de retorno en estructura json
+        $response->assertStatus(404); //Peticion HTTP NOT FOUND
     }
 }

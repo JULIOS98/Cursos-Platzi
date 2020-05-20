@@ -49,7 +49,8 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        //Retornar lo que se onsulta en el objeto
+        return response()->json($post);
     }
 
     /**
