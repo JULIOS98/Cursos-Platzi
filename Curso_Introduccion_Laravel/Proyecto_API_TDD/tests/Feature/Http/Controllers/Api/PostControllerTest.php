@@ -97,7 +97,6 @@ class PostControllerTest extends TestCase
         $this->assertDatabaseHas('posts', ['title' => 'nuevo']);
     }
 
-
     public function test_delete()
     {
         //$this->withoutExceptionHandling();
@@ -114,5 +113,22 @@ class PostControllerTest extends TestCase
         
         //Comprobar si realmente no existe en la base de datos
         $this->assertDatabaseMissing('posts', ['id' => $post->id]);
+    }
+
+    public function test_index()
+    {
+        //Primero crearemos 5 posts
+        factory(Post::class,5)->create();
+
+        $response = $this->json('GET', '/api/posts');
+
+        //Verificar que realmente estoy obteniendo un json
+        $response->assertJsonStructure([
+            'data' => [
+                '*' => ['id','title','created_at', 'updated_at']
+            ]
+        ])->assertStatus(200); // HTTP verificando que estamos accediendo a index con Ok;
+
+        
     }
 }
