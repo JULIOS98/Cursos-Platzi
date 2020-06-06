@@ -1,0 +1,19 @@
+-El algoritmo de facebook analiza:
+
+*Que miramos
+*Que buscamos
+*Tiempo mirando un contenido
+*Gustos
+*donde hacemos click
+*Publicaciones
+
+*Aspecto demografico
+*Aspecto psicografico
+
+*Orientacion politica
+*Orientacion religioso
+*Somos competitivos o colaborativos
+*Comportamiento de consumo (marcas)
+
+https://www.facebook.com/about/ads
+https://www.facebook.com/ds/preferences/

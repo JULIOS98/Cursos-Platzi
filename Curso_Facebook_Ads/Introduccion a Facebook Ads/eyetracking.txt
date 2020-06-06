@@ -1,0 +1,4 @@
+-Es una solucion tecnologica que pretende extraer informacion
+del usuario analizando sus movimientos oculares.
+
+https://www.linkedin.com/pulse/los-screenshots-una-nueva-m%C3%A9trica-mat%C3%ADas-villanueva-garc%C3%ADa/
