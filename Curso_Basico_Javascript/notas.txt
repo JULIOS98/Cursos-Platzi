@@ -1,0 +1,7 @@
+//Clase 7: Scopes
+
+
+Scopes = Alcance de las variables, existen dos tipos scope global y scope local
+
+Scope Global = no puede acceder a las variables del scope local
+Scope Local = Se genera dentro de las funciones y pueden acceder a las variables del scope global
